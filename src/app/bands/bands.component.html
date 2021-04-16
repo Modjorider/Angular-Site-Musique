@@ -3,8 +3,10 @@
     <div *ngIf=" band.name.includes(rechercheService.getFilter())" [ngClass]="staticTheme==='clair'? 'groupesclair': 'groupessombre'">
         <img src={{band.smallLogo}} class="smallLogo">
         <a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" routerLink="{{'/band/' + band.uuid}}">{{band.name}}</a>
-        <a> {{band.originCountry | translate}}      </a>
-        <span class="{{'flag-icon flag-icon-'+codes.get(band.originCountry)}}"></span>
+        <a> {{band.originCountry | translate}}</a>
+        <span *ngFor="let code of codes | keyvalue" class="flag">
+            <span *ngIf="band.originCountry===code.key" class="{{'flag-icon flag-icon-'+code.value}}"></span>
+        </span>
     </div>
 
 

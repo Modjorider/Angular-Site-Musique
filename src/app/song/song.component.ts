@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {lyrics} from '../../modele/lyrics'
 import { langues } from 'src/util/langues_const';
+import { element } from 'protractor';
 
 
 @Component({
@@ -23,8 +24,6 @@ export class SongComponent implements OnInit {
   languages = langues;
   alone: boolean = true;
   selectedOption: string;
-  lang: boolean = true;
-
 
 
   constructor(private HttpClient: HttpClient, 
@@ -71,7 +70,11 @@ export class SongComponent implements OnInit {
     this.HttpClient.get<any>('http://localhost:3000/api/v1/lyrics/'+this.song.uuid)
     .subscribe(response => {
       this.lyrics=response;
-      this.lyrics.forEach(element =>{ typeof(element.language) === 'string'? element.lang=false: element.lang=true; console.log(element.lang)});
+      this.lyrics.forEach(element =>{ 
+        var languageArr;
+        typeof(element.language) === 'string'? languageArr=[element.language]: languageArr = [...element.language]; 
+        element.languageArr=languageArr;
+      });
     })
 
 
@@ -81,7 +84,6 @@ export class SongComponent implements OnInit {
   onChange(value){
     this.alone=false;
     this.selectedOption=value;
-    console.log(this.selectedOption);
   }
 
 }

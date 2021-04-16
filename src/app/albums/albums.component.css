@@ -1,22 +1,49 @@
-.containerclair{
-    align-items: center;
-    background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
-    border-radius: 10px;
-    width:50%;
-    margin-left: 30%;
-    margin-top: 5%;
+@media (max-width: 1300px) {
+
+    .containerclair{
+        align-items: center;
+        background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
+        border-radius: 10px;
+        width:90%;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+
+    .containersombre{
+        align-items: center;
+        background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
+        border-radius: 10px;
+        width:90%;
+        margin-left:5%;
+        margin-top: 5%;
+
+    }
 }
 
-.containersombre{
-    align-items: center;
-    background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
-    border-radius: 10px;
-    width:50%;
-    margin-left:30%;
-    margin-top: 5%;
 
+@media (min-width: 1300px) {
+
+    .containerclair{
+        align-items: center;
+        background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
+        border-radius: 10px;
+        min-width: fit-content;
+        width:50%;
+        margin-left: 30%;
+        margin-top: 5%;
+    }
+
+    .containersombre{
+        align-items: center;
+        background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
+        border-radius: 10px;
+        min-width: fit-content;
+        width:50%;
+        margin-left:30%;
+        margin-top: 5%;
+
+    }
 }
-
 .albumsclair{
     margin-left: 10%;
     width: 80%;

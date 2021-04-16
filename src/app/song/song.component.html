@@ -24,15 +24,11 @@
                 <br> <br>
                 
                 <span *ngFor="let langue of languages | keyvalue" value={{langue.key}}>
-                    <span *ngIf="!lyric.lang">
-                        <a *ngIf="lyric.language === langue.key" >{{"lang."+langue.key | translate}}:</a>
-                    </span>
-                    
-                    <span *ngIf="lyric.lang">
-                        <span *ngFor="let langs of lyric.language">
+                                       
+                        <span *ngFor="let langs of lyric.languageArr">
                             <a *ngIf="langs === langue.key" >{{"lang."+langue.key | translate}}/</a>
                         </span>
-                    </span>
+
                 </span>
                 <br><br>
                 <a *ngFor="let line of lyric.lyrics">{{line}} <br></a>
@@ -50,15 +46,10 @@
                         <td *ngFor="let lyric of lyrics" >
                             <span *ngFor="let langue of languages | keyvalue" value={{langue.key}}>
                                 
-                                <span *ngIf="lyric.original && lyric.lang" class="langue" >  
-                                    <a *ngFor="let langs of lyric.language">
+                                <span *ngIf="lyric.original" class="langue" >  
+                                    <a *ngFor="let langs of lyric.languageArr">
                                         <a *ngIf="langs=== langue.key" >{{"lang."+langue.key | translate}}/</a>
                                     </a>
-                                </span>
-                                
-
-                                <span *ngIf="lyric.original && lyric.language=== langue.key && !lyric.lang" class="langue">
-                                    <a>{{"lang."+langue.key | translate}}:</a>
                                 </span>
 
                             </span>
@@ -76,26 +67,18 @@
                     <tr>
                         
                         <td *ngFor="let lyric of lyrics">
-                            
+                                                      
                             <span *ngFor="let langue of languages | keyvalue" value={{langue.key}}>
-                                <a *ngIf="lyric.original && lyric.language=== langue.key && !lyric.lang">
-                                    <a *ngFor="let line of lyric.lyrics">{{line}} <br></a>
-                                </a>
-                            </span>
-                            
-                            <span *ngFor="let langue of languages | keyvalue" value={{langue.key}}>
-                                <span *ngIf="lyric.original && lyric.lang" class="langue" >  
-                                        <a *ngIf="lyric.language[0]=== langue.key" >
+                                <span *ngIf="lyric.original" class="langue" >  
+                                        <a *ngIf="lyric.languageArr[0]=== langue.key" >
                                             <a *ngFor="let line of lyric.lyrics">{{line}} <br></a>
                                         </a>
                                     
                                 </span>
                             </span>
-
-                            
-
                         </td>
 
+                        
                         <td *ngFor="let lyric of lyrics">
                             <span *ngFor="let langue of languages | keyvalue" value={{langue.key}}>
                                 <a *ngIf="selectedOption === langue.key && lyric.language===selectedOption">

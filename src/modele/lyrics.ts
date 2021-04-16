@@ -1,6 +1,6 @@
 export class lyrics {
-    language: string | string[];
+    language: string[];
     original: boolean;
     lyrics: string[];
-    lang: boolean;
+    languageArr: string[];
   }

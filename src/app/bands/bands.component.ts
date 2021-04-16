@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Subject } from 'rxjs';
-import {Album} from '../../modele/album';
 import {Band} from '../../modele/band';
+import { codes } from '../../util/codes';
 import { RechercheService } from '../recherche';
 
 @Component({
@@ -16,30 +15,21 @@ import { RechercheService } from '../recherche';
 
 export class BandsComponent implements OnInit {
   bands: Band[];
-  codes: Map<string,string>= new Map<string,string>();
   trier:string;
+  codes = codes;
 
   constructor(private HttpClient: HttpClient,
     private cookieService: CookieService,
-    public rechercheService:RechercheService) {
-
-          
-    this.codes.set('country.france','fr');
-    this.codes.set('country.denmark', 'dk');
-    this.codes.set('country.sweden', 'se');
-    this.codes.set('country.usa', 'us');
-    this.codes.set('country.faroe_islands','fo');
-    this.codes.set('country.germany','de');
-
-    }
+    public rechercheService:RechercheService,
+    ) { }
 
   ngOnInit(): void {
     this.HttpClient.get<any>('http://localhost:3000/api/v1/bands')
     .subscribe( response => {
       this.bands=response;
       this.trierGroupe();
-      this.bands.forEach(element => console.log(element.originCountry));
     });
+    
 
   }
 
