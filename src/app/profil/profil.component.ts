@@ -11,28 +11,28 @@ export class ProfilComponent implements OnInit {
   trie:string;
 
   constructor(private cookieService:CookieService) {
-      this.cookieService.check("Autoplay")? 
-        (this.cookieService.get("Autoplay")==="false"? this.autoplay=false:this.autoplay=true): 
-          this.autoplay=false;
+      this.cookieService.check("Autoplay")
+        ? (this.cookieService.get("Autoplay") === "false"
+          ? this.autoplay = false
+          : this.autoplay = true)
+        : this.autoplay = false;
 
-      this.cookieService.check("Trier")? 
-        this.trie=this.cookieService.get("Trier"): this.trie="0", this.cookieService.set("Trier","0");
+      this.cookieService.check("Trier")?
+      this.trie = this.cookieService.get("Trier") : this.trie="0", this.cookieService.set("Trier","0");
    }
 
   ngOnInit(): void {}
 
   onChange(){
-    this.autoplay=!this.autoplay;
-    this.autoplay===false?  this.cookieService.set("Autoplay", "false"):this.cookieService.set("Autoplay","true" );
-    console.log(this.autoplay);
-    console.log(this.cookieService.get("Autoplay"))
+    this.autoplay = !this.autoplay;
+    this.autoplay === false
+      ? this.cookieService.set("Autoplay", "false")
+      : this.cookieService.set("Autoplay", "true");
   }
 
   trierGroupe(newvalue){
-    this.trie=newvalue;
-    console.log(newvalue);
-    console.log(this.trie);
-    this.cookieService.set("Trier",this.trie);
+    this.trie = newvalue;
+    this.cookieService.set("Trier", this.trie);
   }
 
 }

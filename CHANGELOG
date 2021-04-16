@@ -1,0 +1,22 @@
+# Bands components logic rework :
+  > ng g component band/list/band-list --module=app
+    - Creates a new component band-list in folder band/list
+    - Add it in app.module declarations with --module option
+
+  > ng g component band/unique/band-unique --module=app
+    - Creates a new component band-unique in folder band/unique
+    - Add it in app.module declarations with --module option
+
+  > ng g interface band/model/band
+    - Creates the interface for the Band coming from API in folder band/model
+    - Updated dependencies using the interface (e.g. unreworked Album model)
+
+  > ng g service band/band
+    - Creates the service band.service in folder band
+    - Let to export http request from bands component to service
+
+  > Removed old bands.component and band.component with newer band-list and band-unique for more homogeneity
+  > Rewrited routerLink using binding property [routerLink] in <a>
+  > Secured <img> src with quotes
+  > Removed some useless console.log
+  > Added a check on band-unique first div to avoid error on console when Band is not yet loaded

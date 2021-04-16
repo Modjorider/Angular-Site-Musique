@@ -2,7 +2,7 @@
   <nav [ngClass]="staticTheme==='clair'? 'navbar navbar-dark bg-primary': 'navbar navbar-dark bg-dark'" >
       <span>
         <a mat-raised-button color="accent" routerLink="" class="gauche">{{ "label.site" | translate}}</a>
-        <a mat-raised-button color="accent" routerLink="/bands" class="gauche">{{"label.band" | translate}}</a>
+        <a mat-raised-button color="accent" [routerLink]="'/bands'" class="gauche">{{"label.band" | translate}}</a>
         <a mat-raised-button color="accent" routerLink="/albums" class="gauche">{{"label.album" | translate}}</a>
         <a mat-raised-button color="accent" routerLink="/songs" class="gauche">{{"label.songs" | translate}}</a>
       </span>

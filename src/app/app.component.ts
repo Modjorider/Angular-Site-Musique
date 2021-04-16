@@ -22,34 +22,28 @@ export class AppComponent {
     private cookieService: CookieService,
     private rechercheService:RechercheService
     ){
-    
+
     translate.setDefaultLang('en');
     this.cookieService.check("Langue")? translate.use(this.cookieService.get("Langue")):translate.use("en");
-      
+
   }
 
-  onChange(newValue){
-    console.log(newValue);
-    this.selectedOption=newValue;
+  onChange(newValue) {
+    this.selectedOption = newValue;
     this.cookieService.set('Langue',this.selectedOption);
     this.translate.use(this.selectedOption);
-    
+
   }
 
-  onClick(){
-    console.log(this.cookieService.get('Thème')=='sombre');
-    console.log(this.cookieService.get('Thème'));
+  onClick() {
     this.cookieService.set('Thème',this.cookieService.get('Thème')=='sombre'? 'clair':'sombre')
   }
 
-  get staticTheme(){
+  get staticTheme() {
     return this.cookieService.check('Thème')? this.cookieService.get('Thème'):this.cookieService.set('Thème', 'clair');
   }
 
-  rechercher(value){
-    console.log(value);
+  rechercher(value) {
     this.rechercheService.setFilter(value);
-    
   }
-  
 }

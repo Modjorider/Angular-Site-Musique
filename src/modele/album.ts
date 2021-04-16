@@ -1,4 +1,4 @@
-import {Band} from '../modele/band';
+import { Band } from 'src/app/band/model/band';
 import {Song} from '../modele/song';
 
 export class Album{
@@ -14,11 +14,11 @@ export class Album{
     band: Band;
     songs: Song[];
     nbsong: number;
-  
+
     constructor(){
       this.nbsongs();
     }
-  
+
     nbsongs(){
       this.nbsong = this.songs.length;
     }
