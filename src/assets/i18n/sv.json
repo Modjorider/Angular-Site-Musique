@@ -1,0 +1,54 @@
+{
+    "country": {
+        "usa": "Amerikas Förenta Stater",
+        "sweden": "Sverige",
+        "denmark": "Danmark",
+        "france": "Frankrike",
+        "germany": "Tyskland",
+        "faroe_islands": "Färöarna",
+        "malta": "Malta",
+        "spain": "Spanien"
+    },
+
+    "genre": {
+        "celtic_punk": "Keltiskpunk",
+        "power_metal": "Power Metal",
+        "heavy_metal": "Heavy Metal",
+        "technical_death_metal":"Technical Death Metal",
+        "death_metal":"Death Metal",
+        "progressive_metal": "Progressiv Metal",
+        "neue_deutsche_härte": "Neue Deutsch Härte",
+        "folk_metal": "Folk Metal"
+    },
+
+    "type": {
+        "studio_album": "Studioalbum",
+        "single": "Singel"
+    },
+
+    "label": {
+        "name": "Titel",
+        "cover": "Omslagsbild",
+        "release_date": "Släppdatum",
+        "recording_country": "Inspelningsland",
+        "band": "Band",
+        "songs": "Låtar",
+        "duration": "Längd",
+        "track_number": "Spårnummer",
+        "writers": "Författare",
+        "lyrics": "Sångtext",
+        "youtube_link": "Youtube Länk",
+        "album": "Album",
+        "seconds": "Sekunder",
+        "site": "Rodolphe TG",
+        "theme": "Byta Tema",
+        "profile": "Profil"
+    },
+	
+	"lang":{
+		"en": "Engelska",
+		"fr": "Franska",
+		"is": "Isländska",
+		"sv": "Svenska"
+	}
+}

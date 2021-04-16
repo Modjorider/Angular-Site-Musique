@@ -1,0 +1,24 @@
+<div [ngClass]="staticTheme==='clair'? 'containerclair': 'containersombre'" *ngFor="let song of songs">
+    <table *ngIf=" song.name.includes(rechercheService.getFilter())" [ngClass]="staticTheme==='clair'? 'songsclair': 'songssombre'">
+        <tbody>
+            <tr>
+                <td><a>{{"label.name" | translate }}: <br></a><a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" routerLink="{{'/song/'+song.uuid}}"> {{song.name}} </a></td>
+                <td><span> {{"label.duration" | translate }}: <br>{{song.duration}} {{"label.seconds" |translate}} </span></td>
+                <td><span> {{"label.track_number" | translate }}: <br> {{song.trackNumber}} </span></td>
+                <td><span> {{"label.writers" | translate}} <br> {{song.writers}} </span></td>
+            </tr>
+            <tr>
+                <td><span>{{"label.youtube_link" | translate}}: <br> </span><a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" href={{song.youtubeLink}}> {{song.youtubeLink}} </a></td>
+                <td><span> {{"label.album" | translate}}: <br> <a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" routerLink="{{'/album/'+song.album.uuid}}">{{song.album.name}} </a> </span></td>
+                <td><span class="note"> Note: <br> 
+                    <div class="rating">
+                        <a *ngFor="let note of notes" [ngClass]="song.note >= note? 'jaune':'grise'" (click)="choixNote(note, song)">☆</a>
+                    </div>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+

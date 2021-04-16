@@ -1,0 +1,57 @@
+{
+    "country":{
+        "usa": "Etats-Unis",
+        "sweden": "Suède",
+        "denmark": "Danemark",
+        "france": "France",
+        "germany": "Allemagne",
+        "faroe_islands": "Iles Féroé",
+        "malta": "Malte",
+        "spain": "Espagne"
+    },
+
+    "genre":{
+        "celtic_punk":"Punk celtique",
+        "power_metal":"Power Metal",
+        "heavy_metal":"Heavy Metal",
+        "technical_death_metal":"Death Metal Technique",
+        "death_metal":"Death Metal",
+        "progressive_metal": "Metal Progressif",
+        "neue_deutsche_härte": "Neue Deutsch Härte",
+        "folk_metal": "Folk Metal"
+    },
+
+    "type":{
+        "studio_album": "Album Studio",
+        "single": "Single"
+    },
+
+    "label":{
+        "name":"Titre",
+        "cover":"Image",
+        "release_date": "Date de sortie",
+        "recording_country":"Pays d'enregistrement",
+        "band":"Groupe",
+        "songs": "Musiques",
+        "duration": "Durée",
+        "track_number": "Numéro de la piste",
+        "writers": "Paroliers",
+        "lyrics": "Paroles",
+        "youtube_link": "Lien Youtube",
+        "album": "Album",
+        "seconds": "Secondes",
+        "site": "Site Musique",
+        "theme": "Changer de Thème",
+        "profil":"Profil"
+    },
+
+    "lang":{
+        "en":"Anglais",
+        "is": "Islandais",
+        "fr": "Français",
+        "sv": "Suédois"
+    }
+    
+    
+    
+}
