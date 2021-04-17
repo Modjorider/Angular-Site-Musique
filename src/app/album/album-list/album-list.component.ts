@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { AlbumService } from '../album.service';
-import { RechercheService } from '../../recherche';
+import { SearchService } from '../../search.service';
 import { Album } from '../model/album';
 
 @Component({
@@ -12,7 +12,7 @@ import { Album } from '../model/album';
 export class AlbumListComponent implements OnInit {
   albums: Album[];
 
-  constructor(private albumService: AlbumService, private cookieService: CookieService, public rechercheService: RechercheService) {
+  constructor(private albumService: AlbumService, private cookieService: CookieService, public searchService: SearchService) {
     this.albums = [];
   }
 
@@ -25,7 +25,7 @@ export class AlbumListComponent implements OnInit {
       );
   }
 
-  get staticTheme(){
-    return this.cookieService.get('Thème');
+  getTheme() {
+    return this.cookieService.get('theme');
   }
 }

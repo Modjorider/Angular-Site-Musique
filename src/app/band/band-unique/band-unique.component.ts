@@ -41,7 +41,7 @@ export class BandUniqueComponent implements OnInit {
       );
   }
 
-  get staticTheme() {
-    return this.cookieService.get('Thème');
+  getTheme() {
+    return this.cookieService.get('theme');
   }
 }

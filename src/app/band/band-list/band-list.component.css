@@ -1,4 +1,4 @@
-.containerclair{
+.containerbright {
   align-items: center;
   background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
   border-radius: 10px;
@@ -6,7 +6,7 @@
   margin-left: 35%;
 }
 
-.containersombre{
+.containerdark {
   align-items: center;
   background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
   border-radius: 10px;
@@ -15,56 +15,53 @@
 
 }
 
-.buttonclair{
+.buttonbright {
   background-color: rgb(238, 255, 0);
 }
 
-.buttonsombre{
+.buttondark {
   background-color:rgb(78, 1, 1);
 }
 
-.smallLogo{
+.smallLogo {
   height: 3em;
   border-radius: 50%;
   margin-left: 1em;
 }
 
-.groupesclair{
+.groupesbright {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.groupessombre{
+.groupesdark {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.groupesclair a,.groupessombre a{
+.groupesbright a,.groupesdark a {
   padding-left: 5%;
 }
 
-
-
-.albumsclair{
+.albumsbright {
   margin-left: 10%;
   max-width: fit-content;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-.albumssombre{
+.albumsdark {
   margin-left: 10%;
   max-width: fit-content;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-
-.cover{
+.cover {
   max-height: 5em;
 }
 
-.lien{
+.link {
   color:black;
 }
 

@@ -1,0 +1,15 @@
+<div class="body">
+  <h2>Autoplay :</h2>
+
+  <label class="switch">
+    <input [(ngModel)]="autoplay" (ngModelChange)="onChange()" [checked]="autoplay" type="checkbox">
+    <span class="slider round"></span>
+  </label>
+
+  <div class="sort">
+    <select name="sort" [(ngModel)]="sort" (ngModelChange)="sortBands($event)">
+      <option value=0>{{ 'label.sort_by.name' | translate }}</option>
+      <option value=1>{{ 'label.sort_by.nationality' | translate }}</option>
+    </select>
+  </div>
+</div>

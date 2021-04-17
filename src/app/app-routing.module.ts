@@ -7,8 +7,8 @@ import { BandUniqueComponent } from './band/band-unique/band-unique.component';
 import { BandListComponent } from './band/band-list/band-list.component';
 import { SongUniqueComponent } from './song/song-unique/song-unique.component';
 import { SongListComponent } from './song/song-list/song-list.component';
-import { ErreursComponent } from './erreurs/erreurs.component';
-import { ProfilComponent } from './profil/profil.component';
+import { ErrorComponent } from './error/error.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: BandListComponent, pathMatch: 'full' },
@@ -18,9 +18,9 @@ const routes: Routes = [
   { path: 'albums', component: AlbumListComponent },
   { path: 'song/:uuid', component: SongUniqueComponent },
   { path: 'songs', component: SongListComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'erreurUrl', component: ErreursComponent },
-  { path: '**', component: ErreursComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'error', component: ErrorComponent },
+  { path: '**', component: ErrorComponent }
 ];
 
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { RechercheService } from '../../recherche';
+import { SearchService } from '../../search.service';
 import { SongService } from '../song.service';
 import { Song } from '../model/song';
 
@@ -13,7 +13,7 @@ export class SongListComponent implements OnInit {
   songs: Song[];
   notes = [5, 4, 3, 2, 1];
 
-  constructor(private songService: SongService, private cookieService: CookieService, public rechercheService: RechercheService) {
+  constructor(private songService: SongService, private cookieService: CookieService, public searchService: SearchService) {
     this.songs = [];
   }
 
@@ -26,8 +26,8 @@ export class SongListComponent implements OnInit {
       );
   }
 
-  get staticTheme(){
-    return this.cookieService.get('Thème');
+  getTheme() {
+    return this.cookieService.get('theme');
   }
 
   choixNote(value, song: Song) {

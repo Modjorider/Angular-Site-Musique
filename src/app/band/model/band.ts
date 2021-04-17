@@ -11,4 +11,6 @@ export interface Band {
   members: string[];
   website: string;
   albums: Album[];
+
+  all: boolean;
 }

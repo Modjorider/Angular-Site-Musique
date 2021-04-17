@@ -1,4 +1,4 @@
-.containerclair{
+.containerbright {
   align-items: center;
   background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
   border-radius: 10px;
@@ -7,54 +7,50 @@
   margin-top: 5%;
 }
 
-.containersombre{
+.containerdark {
   align-items: center;
   background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
   border-radius: 10px;
   width:55%;
   margin-left:30%;
   margin-top: 5%;
-
 }
 
-.songsclair{
+.songsbright {
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-.songssombre{
+.songsdark {
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-
-.cover{
+.cover {
   max-height: 5em;
 }
 
-.lien{
+.link {
   color:rgb(185, 92, 5);
 }
 
 .rating a:hover ~ a,
 .rating a:focus ~ a,
 .rating a:active ~ a,
-.rating .jaune
-{
- color: orange;
+.rating .yellow {
+  color: orange;
 }
 
 .rating a {
   float: right;
-
 }
 
-.rating{
+.rating {
   float: left;
 }
 
-.note{
+.note {
   float: left;
 }

@@ -1,21 +1,21 @@
-<body [ngClass]="staticTheme==='clair'? 'bodyclair': 'bodysombre'">
-  <nav [ngClass]="staticTheme==='clair'? 'navbar navbar-dark bg-primary': 'navbar navbar-dark bg-dark'" >
-      <span>
-        <a mat-raised-button color="accent" routerLink="" class="gauche">{{ "label.site" | translate}}</a>
-        <a mat-raised-button color="accent" [routerLink]="'/bands'" class="gauche">{{"label.band" | translate}}</a>
-        <a mat-raised-button color="accent" routerLink="/albums" class="gauche">{{"label.album" | translate}}</a>
-        <a mat-raised-button color="accent" routerLink="/songs" class="gauche">{{"label.songs" | translate}}</a>
-      </span>
+<body [ngClass]="getTheme() === 'bright' ? 'bodybright': 'bodydark'">
+  <nav [ngClass]="getTheme() === 'bright' ? 'navbar navbar-dark bg-primary': 'navbar navbar-dark bg-dark'" >
+    <span>
+      <a mat-raised-button color="accent" [routerLink]="'/'" class="gauche">{{ 'label.site' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/bands'" class="gauche">{{ 'label.band' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/albums'" class="gauche">{{ 'label.album' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/songs'" class="gauche">{{ 'label.songs' | translate }}</a>
+    </span>
 
-      <span class="droite">
-        <input type="search" aria-label="Rechercher" [(ngModel)]="recherche" (ngModelChange)="rechercher($event)">
-        <select name="langue" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
-          <option *ngFor="let langue of languages | keyvalue" value={{langue.key}}>{{langue.value}}</option>
-        </select>
-
-        <a mat-raised-button color="accent" (click)="onClick()">{{"label.theme" | translate}}</a>
-        <a mat-raised-button color="accent" routerLink="/profil">{{"label.profil" | translate }}</a>
-      </span>
+    <span class="droite">
+      <input type="search" aria-label="Search" [(ngModel)]="searchFilter" (ngModelChange)="search($event)">
+      <select name="lang" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
+        <option *ngFor="let lang of languages | keyvalue" value={{lang.key}}>{{ lang.value }}</option>
+      </select>
+      <a mat-raised-button color="accent" (click)="onClick()">{{ 'label.theme' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/profile'">{{ 'label.profile' | translate }}</a>
+    </span>
   </nav>
+
   <router-outlet></router-outlet>
-  </body>
+</body>

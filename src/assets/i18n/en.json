@@ -42,7 +42,11 @@
         "seconds": "Secondes",
         "site": "Music Website",
         "theme": "Change Theme",
-        "profil":"Profil"
+        "profile":"Profile",
+        "sort_by": {
+          "name": "Sort by name",
+          "nationality": "Sort by nationality"
+        }
     },
 
     "lang":{

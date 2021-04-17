@@ -1,61 +1,59 @@
-h1, h2{
+h1, h2 {
   margin-left: 40%;
 }
 
-iframe{
+iframe {
   padding-top: 5%;
   margin-left: 15%;
-
 }
 
-.lyrics{
+.lyrics {
   margin-top: 5%;
   margin-left: 10%;
 }
 
-.lyrics .seul{
+.lyrics .alone {
   position: relative;
   left: 15%;
 }
 
-.lyrics h2{
+.lyrics h2 {
   margin-top: 5%;
 }
 
-h3{
+h3 {
   margin-left: 35%;
 }
 
-.lyricsclair .langue{
-  text-decoration: underline,solid;
+.lyricsbright .lang {
+  text-decoration: underline, solid;
   color: black;
 }
 
-.lyricsclair .languecomp{
-  text-decoration: underline,solid;
+.lyricsbright .langcomp {
+  text-decoration: underline, solid;
   color: black;
 }
 
-.lyricssombre .langue{
-  text-decoration: underline,solid;
+.lyricsdark .lang {
+  text-decoration: underline, solid;
   color: white;
 }
 
-
-.lyricssombre .languecomp{
-  text-decoration: underline,solid;
+.lyricsdark .langcomp {
+  text-decoration: underline, solid;
   color: white;
 }
 
-.invisible{
-  display:none;
+.invisible {
+  display: none;
 }
 
-table{
-  width:100%;
+table {
+  width: 100%;
 }
 
-.titrelangue{
+.langtitle {
   position: relative;
   left: 30%;
 }

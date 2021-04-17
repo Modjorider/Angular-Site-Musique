@@ -17,9 +17,8 @@ import { BandListComponent } from './band/band-list/band-list.component';
 import { BandUniqueComponent } from './band/band-unique/band-unique.component';
 import { SongListComponent } from './song/song-list/song-list.component';
 import { SongUniqueComponent } from './song/song-unique/song-unique.component';
-import { ErreursComponent } from './erreurs/erreurs.component';
-import { ProfilComponent } from './profil/profil.component';
-import { RechercheService } from './recherche';
+import { ErrorComponent } from './error/error.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +29,8 @@ import { RechercheService } from './recherche';
     BandUniqueComponent,
     SongListComponent,
     SongUniqueComponent,
-    ErreursComponent,
-    ProfilComponent
+    ErrorComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +49,7 @@ import { RechercheService } from './recherche';
       defaultLanguage: 'fr'
     })
   ],
-  providers: [CookieService, RechercheService],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

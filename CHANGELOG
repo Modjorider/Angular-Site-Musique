@@ -23,7 +23,7 @@
 
 # Removed unused varaiables & fonctions :
   > "all" property in Band model
-  > "rechercher" method in band-lis component
+  > "rechercher" method in band-list component
 
 # Albums components logic rework :
   > ng g component album/album-list --module=app
@@ -72,3 +72,45 @@
   > Added a check on song-unique first div to avoid error on console when song object is not yet loaded
   > Removed unused properties in song-list and song-unique
   > Temporary deactivated lyrics on song-unique
+
+# Refactoring french names of objects, variables and methods to english
+  > profil
+    - Renamed profil-component to profile-component
+    - Renamed label.profil to label.profile
+
+  > lyrics
+    - Renamed lyrics class to Lyrics class
+    - Renamed seul css class to alone
+
+  > erreurs
+    - Renamed erreurs-component to error-component
+    - Renamed /erreurUrl route to /error route
+
+  > recherche
+    - Renamed recherche to search
+    - Renamed recherche.ts service to search.service.ts
+
+  > album-list
+    - Renamed lien css class to link
+
+  > band-list
+    - Renamed trier variable to sort
+    - Renamed trierGroupes method to sortBands
+    - Renamed méthodeTrier method to sortMethod
+
+  > profile
+    - Renamed trie css class to sort
+    - Added label for sort_by name and nationality in profile component
+
+  > cookies
+    - Changed to lowercase cookie keys
+    - Renamed Thème to theme
+    - Renamed Trier to sortBy
+    - Renamed Autoplay to autoplay
+    - Removed unused Langue cookie
+
+  > theme
+    - Renamed clair to bright
+    - Renamed sombre to dark
+
+  > Reindented all HTML files

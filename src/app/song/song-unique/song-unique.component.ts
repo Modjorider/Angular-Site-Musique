@@ -4,8 +4,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { SongService } from '../song.service';
 import { Song } from '../model/song';
-import { lyrics } from 'src/modele/lyrics';
-import { langues } from 'src/util/langues_const';
+import { Lyrics } from 'src/model/lyrics';
+import { langs } from 'src/util/langs_const';
 
 @Component({
   selector: 'app-song-unique',
@@ -14,23 +14,23 @@ import { langues } from 'src/util/langues_const';
 })
 export class SongUniqueComponent implements OnInit {
   song: Song;
-  Liendébut: string[];
-  Lien: string;
+  startLink: string[];
+  link: string;
   autoplay: boolean;
-  lyrics: lyrics[];
-  languages = langues;
+  lyrics: Lyrics[];
+  languages = langs;
   alone: boolean;
   lang: boolean;
   selectedOption: string;
 
   constructor(private songService: SongService, private cookieService: CookieService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.song = null;
-    this.Liendébut = [];
+    this.startLink = [];
     this.alone = true;
     this.lang = true;
 
-    this.cookieService.check('Autoplay')
-      ? (this.cookieService.get('Autoplay') === 'false'
+    this.cookieService.check('autoplay')
+      ? (this.cookieService.get('autoplay') === 'false'
         ? this.autoplay = false
         : this.autoplay = true)
       : this.autoplay = false;
@@ -48,7 +48,7 @@ export class SongUniqueComponent implements OnInit {
               .subscribe(
                 (result) => {
                   this.song = result;
-                  this.getLien();
+                  this.getLink();
                   this.getlyrics();
                 },
                 (error) => { console.error('[song-unique]', error); }
@@ -58,15 +58,15 @@ export class SongUniqueComponent implements OnInit {
       );
   }
 
-  get staticTheme(){
-    return this.cookieService.get('Thème');
+  getTheme() {
+    return this.cookieService.get('theme');
   }
 
-  getLien() {
-    this.Liendébut = this.song.youtubeLink.split("watch?v=");
-    this.autoplay ? this.Lien = this.Liendébut[0] + "embed/" + this.Liendébut[1] + "?autoplay=1" : this.Lien = this.Liendébut[0] + "embed/" + this.Liendébut[1];
+  getLink() {
+    this.startLink = this.song.youtubeLink.split("watch?v=");
+    this.autoplay ? this.link = this.startLink[0] + "embed/" + this.startLink[1] + "?autoplay=1" : this.link = this.startLink[0] + "embed/" + this.startLink[1];
 
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.Lien);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
     // URL début : https://www.youtube.com/watch?v=H7FIw--9Hs4
     // URL fin : https://www.youtube.com/embed/H7FIw--9Hs4
   }

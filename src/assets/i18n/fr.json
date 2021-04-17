@@ -42,7 +42,11 @@
         "seconds": "Secondes",
         "site": "Site Musique",
         "theme": "Changer de Thème",
-        "profil":"Profil"
+        "profile":"Profil",
+        "sort_by": {
+          "name": "Trier par nom",
+          "nationality": "Trier par nationalité"
+        }
     },
 
     "lang":{
@@ -51,7 +55,4 @@
         "fr": "Français",
         "sv": "Suédois"
     }
-    
-    
-    
 }

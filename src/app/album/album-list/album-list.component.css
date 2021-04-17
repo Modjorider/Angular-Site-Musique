@@ -1,4 +1,4 @@
-.containerclair{
+.containerbright {
   align-items: center;
   background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
   border-radius: 10px;
@@ -7,7 +7,7 @@
   margin-top: 5%;
 }
 
-.containersombre{
+.containerdark {
   align-items: center;
   background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
   border-radius: 10px;
@@ -17,14 +17,14 @@
 
 }
 
-.albumsclair{
+.albumsbright {
   margin-left: 10%;
   width: 80%;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-.albumssombre{
+.albumsdark {
   margin-left: 10%;
   width: 80%;
   border-collapse: separate;
@@ -36,7 +36,7 @@
   max-height: 5em;
 }
 
-.lien{
+.link {
   color:black;
 }
 

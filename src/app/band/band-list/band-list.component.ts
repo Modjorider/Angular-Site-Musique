@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { BandService } from '../band.service';
-import { RechercheService } from '../../recherche';
+import { SearchService } from '../../search.service';
 import { Band } from '../model/band';
 
 @Component({
@@ -12,9 +12,9 @@ import { Band } from '../model/band';
 export class BandListComponent implements OnInit {
   bands: Band[];
   codes: Map<string, string>;
-  trier: string;
+  sort: string;
 
-  constructor(private bandService: BandService, private cookieService: CookieService, public rechercheService: RechercheService) {
+  constructor(private bandService: BandService, private cookieService: CookieService, public searchService: SearchService) {
     this.bands = [];
     this.codes = new Map<string, string>();
 
@@ -35,19 +35,23 @@ export class BandListComponent implements OnInit {
       );
   }
 
-  get staticTheme() {
-    return this.cookieService.get('Thème');
+  getTheme() {
+    return this.cookieService.get('theme');
   }
 
-  trierGroupe() {
-    this.cookieService.check("Trier")
-      ? this.méthodeTrier(this.cookieService.get("Trier"))
-      : this.méthodeTrier("0");
+  sortBands() {
+    this.cookieService.check('sortBy')
+      ? this.sortMethod(this.cookieService.get('sortBy'))
+      : this.sortMethod('0');
   }
 
-  méthodeTrier(méthode: string) {
-    méthode === "0"
-      ? this.bands.sort((a,b) => a.name.localeCompare(b.name))
-      : this.bands.sort((a,b) => a.originCountry.localeCompare(b.originCountry));
+  sortMethod(methode: string) {
+    methode === '0'
+      ? this.bands.sort((a, b) => a.name.localeCompare(b.name))
+      : this.bands.sort((a, b) => a.originCountry.localeCompare(b.originCountry));
+  }
+
+  onClick(band: Band) {
+    band.all = !band.all;
   }
 }
