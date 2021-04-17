@@ -39,11 +39,7 @@ export class BandListComponent implements OnInit {
     return this.cookieService.get('Thème');
   }
 
-  onClick(band: Band) {
-    band.all = !band.all;
-  }
-
-  trierGroupe(){
+  trierGroupe() {
     this.cookieService.check("Trier")
       ? this.méthodeTrier(this.cookieService.get("Trier"))
       : this.méthodeTrier("0");
@@ -53,9 +49,5 @@ export class BandListComponent implements OnInit {
     méthode === "0"
       ? this.bands.sort((a,b) => a.name.localeCompare(b.name))
       : this.bands.sort((a,b) => a.originCountry.localeCompare(b.originCountry));
-  }
-
-  rechercher(value) {
-
   }
 }

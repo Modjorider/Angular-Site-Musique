@@ -20,3 +20,7 @@
   > Secured <img> src with quotes
   > Removed some useless console.log
   > Added a check on band-unique first div to avoid error on console when Band is not yet loaded
+
+# Removed unused varaiables & fonctions
+  > "all" property in Band model
+  > "rechercher" method in band-lis component

@@ -1,4 +1,4 @@
-import {Album} from '../../../modele/album';
+import { Album } from '../../../modele/album';
 
 export interface Band {
   uuid: string;
@@ -12,5 +12,4 @@ export interface Band {
   albumsId: string[];
   website: string;
   albums: Album[];
-  all: boolean;
 }
