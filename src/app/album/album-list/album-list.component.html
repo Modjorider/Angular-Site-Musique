@@ -1,0 +1,32 @@
+<div [ngClass]="staticTheme === 'clair' ? 'containerclair' : 'containersombre'" *ngFor="let album of albums">
+  <table *ngIf="album.name.includes(rechercheService.getFilter())" [ngClass]="staticTheme === 'clair' ? 'albumsclair' : 'albumssombre'">
+      <tbody>
+          <tr>
+            <img src="{{ album.cover }}" class="cover" />
+            <td>
+              <a [ngClass]="staticTheme === 'clair' ? 'lien': 'liensombre'" [routerLink]="['/album', album.uuid]">{{ album.name }}</a>
+            </td>
+            <td>
+              <a>{{ album.releaseDate | date: 'dd/MM/yyyy' }}</a>
+            </td>
+            <td>
+              <span>{{ album.recordingCountry | translate }}</span>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <span>{{ album.genre | translate }}</span>
+              </td>
+              <td>
+                <span>{{ album.type | translate }}</span>
+              </td>
+              <td>
+                <a *ngFor="let song of album.songs" [ngClass]="staticTheme === 'clair' ? 'lien': 'liensombre'" [routerLink]="['/song', song.uuid]">{{ song.name }}<br /></a>
+              </td>
+              <td>
+                <a [ngClass]="staticTheme === 'clair' ? 'lien' : 'liensombre'" [routerLink]="['/band', album.band.uuid]">{{ album.band.name }}</a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

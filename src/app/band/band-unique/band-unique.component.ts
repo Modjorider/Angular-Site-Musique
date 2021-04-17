@@ -21,7 +21,6 @@ export class BandUniqueComponent implements OnInit {
     this.codes.set('country.denmark', 'dk');
     this.codes.set('country.sweden', 'se');
     this.codes.set('country.usa', 'us');
-
   }
 
   ngOnInit(): void {

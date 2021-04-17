@@ -11,8 +11,8 @@ import { CookieService } from 'ngx-cookie-service'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AlbumsComponent } from './albums/albums.component';
-import { AlbumComponent } from './album/album.component';
+import { AlbumListComponent } from './album/album-list/album-list.component';
+import { AlbumUniqueComponent } from './album/album-unique/album-unique.component';
 import { BandListComponent } from './band/band-list/band-list.component';
 import { BandUniqueComponent } from './band/band-unique/band-unique.component';
 import { SongsComponent } from './songs/songs.component';
@@ -24,14 +24,14 @@ import { RechercheService } from './recherche';
 @NgModule({
   declarations: [
     AppComponent,
-    AlbumsComponent,
-    AlbumComponent,
+    AlbumListComponent,
+    AlbumUniqueComponent,
     BandListComponent,
     BandUniqueComponent,
     SongsComponent,
     SongComponent,
     ErreursComponent,
-    ProfilComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

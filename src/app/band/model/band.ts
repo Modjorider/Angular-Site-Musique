@@ -1,4 +1,4 @@
-import { Album } from '../../../modele/album';
+import { Album } from 'src/app/album/model/album';
 
 export interface Band {
   uuid: string;
@@ -9,7 +9,6 @@ export interface Band {
   largeLogo: string;
   banner: string;
   members: string[];
-  albumsId: string[];
   website: string;
   albums: Album[];
 }

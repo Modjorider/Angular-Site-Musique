@@ -1,9 +1,9 @@
 # Bands components logic rework :
-  > ng g component band/list/band-list --module=app
+  > ng g component band/band-list --module=app
     - Creates a new component band-list in folder band/list
     - Add it in app.module declarations with --module option
 
-  > ng g component band/unique/band-unique --module=app
+  > ng g component band/band-unique --module=app
     - Creates a new component band-unique in folder band/unique
     - Add it in app.module declarations with --module option
 
@@ -13,14 +13,38 @@
 
   > ng g service band/band
     - Creates the service band.service in folder band
-    - Let to export http request from bands component to service
+    - Lets export http request from bands component to service
 
   > Removed old bands.component and band.component with newer band-list and band-unique for more homogeneity
   > Rewrited routerLink using binding property [routerLink] in <a>
   > Secured <img> src with quotes
   > Removed some useless console.log
-  > Added a check on band-unique first div to avoid error on console when Band is not yet loaded
+  > Added a check on band-unique first div to avoid error on console when band property is not yet loaded
 
-# Removed unused varaiables & fonctions
+# Removed unused varaiables & fonctions :
   > "all" property in Band model
   > "rechercher" method in band-lis component
+
+# Albums components logic rework :
+  > ng g component album/album-list --module=app
+    - Creates a new component album-list in folder album/list
+    - Add it in app.module declarations with --module option
+
+  > ng g component album/album-unique --module=app
+    - Creates a new component album-unique in folder album/unique
+    - Add it in app.module declarations with --module option
+
+  > ng g interface album/model/album
+    - Creates the interface for the Album coming from API in folder album/model
+    - Updated dependencies using the interface
+
+  > ng g service album/album
+    - Creates the service album.service in folder album
+    - Lets export http request from albums component to service
+
+  > Removed old albums.component and album.component with newer album-list and album-unique for more homogeneity
+  > Rewrited routerLink using binding property [routerLink] in <a>
+  > Secured <img> src with quotes
+  > Added a check on album-unique first div to avoid error on console when album property is not yet loaded
+  > Removed AlbumId/BandId/SongId property from models
+  > Removed unused properties in album-list and album-unique
