@@ -15,8 +15,8 @@ import { AlbumListComponent } from './album/album-list/album-list.component';
 import { AlbumUniqueComponent } from './album/album-unique/album-unique.component';
 import { BandListComponent } from './band/band-list/band-list.component';
 import { BandUniqueComponent } from './band/band-unique/band-unique.component';
-import { SongsComponent } from './songs/songs.component';
-import { SongComponent } from './song/song.component';
+import { SongListComponent } from './song/song-list/song-list.component';
+import { SongUniqueComponent } from './song/song-unique/song-unique.component';
 import { ErreursComponent } from './erreurs/erreurs.component';
 import { ProfilComponent } from './profil/profil.component';
 import { RechercheService } from './recherche';
@@ -28,8 +28,8 @@ import { RechercheService } from './recherche';
     AlbumUniqueComponent,
     BandListComponent,
     BandUniqueComponent,
-    SongsComponent,
-    SongComponent,
+    SongListComponent,
+    SongUniqueComponent,
     ErreursComponent,
     ProfilComponent
   ],

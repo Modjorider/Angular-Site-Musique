@@ -1,7 +1,7 @@
 <div [ngClass]="staticTheme==='clair'? 'containerclair': 'containersombre'" *ngFor="let band of bands" >
 
   <div *ngIf=" band.name.includes(rechercheService.getFilter())" [ngClass]="staticTheme==='clair'? 'groupesclair': 'groupessombre'">
-      <img src={{band.smallLogo}} class="smallLogo">
+      <img src="{{ band.smallLogo }}" class="smallLogo">
       <a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" [routerLink]="['/band', band.uuid]">{{ band.name }}</a>
       <a> {{band.originCountry | translate}}      </a>
       <span class="{{'flag-icon flag-icon-'+codes.get(band.originCountry)}}"></span>
@@ -28,7 +28,7 @@
 
   <table *ngIf="!band.all && band.name.includes(rechercheService.getFilter())" [ngClass]="staticTheme==='clair'? 'albumsclair': 'albumssombre'">
       <tbody>
-          <tr><img src={{band.albums[0]?.cover}} class="cover">
+          <tr><img src="{{ band.albums[0]?.cover }}" class="cover">
               <td><a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" [routerLink]="['/album', band.albums[0]?.uuid]">{{band.albums[0]?.name}} </a></td>
                   <td><a>{{"label.release_date" | translate }}: <br>{{band.albums[0]?.releaseDate | date: 'dd/MM/yyyy'}}</a></td>
           </tr>
@@ -38,7 +38,7 @@
   <div *ngIf="band.all && band.name.includes(rechercheService.getFilter())">
       <table *ngFor="let album of band.albums" [ngClass]="staticTheme==='clair'? 'albumsclair': 'albumssombre'">
           <tbody>
-              <tr><img src={{album.cover}} class="cover">
+              <tr><img src="{{ album.cover }}" class="cover">
                   <td><a [ngClass]="staticTheme==='clair'? 'lien': 'liensombre'" [routerLink]="['/album', album.uuid]">{{album.name}} </a></td>
                       <td><a>{{album.releaseDate | date: 'dd/MM/yyyy'}}</a></td>
               </tr>

@@ -1,6 +1,6 @@
 import { Album } from 'src/app/album/model/album';
 
-export class Song {
+export interface Song {
   uuid: string;
   name: string;
   duration: number;

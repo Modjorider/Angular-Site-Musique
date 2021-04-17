@@ -1,4 +1,4 @@
-export const langues ={
+export const langues = {
     /*aa: "Afaraf",
     ab:"Аҧсуа",
     ae: "Avesta",

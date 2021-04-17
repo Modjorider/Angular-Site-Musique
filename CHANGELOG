@@ -19,7 +19,7 @@
   > Rewrited routerLink using binding property [routerLink] in <a>
   > Secured <img> src with quotes
   > Removed some useless console.log
-  > Added a check on band-unique first div to avoid error on console when band property is not yet loaded
+  > Added a check on band-unique first div to avoid error on console when band object is not yet loaded
 
 # Removed unused varaiables & fonctions :
   > "all" property in Band model
@@ -45,6 +45,30 @@
   > Removed old albums.component and album.component with newer album-list and album-unique for more homogeneity
   > Rewrited routerLink using binding property [routerLink] in <a>
   > Secured <img> src with quotes
-  > Added a check on album-unique first div to avoid error on console when album property is not yet loaded
+  > Added a check on album-unique first div to avoid error on console when album object is not yet loaded
   > Removed AlbumId/BandId/SongId property from models
   > Removed unused properties in album-list and album-unique
+
+# Songs components logic rework :
+  > ng g component song/song-list --module=app
+    - Creates a new component song-list in folder song/list
+    - Add it in app.module declarations with --module option
+
+  > ng g component song/song-unique --module=app
+    - Creates a new component song-unique in folder song/unique
+    - Add it in app.module declarations with --module option
+
+  > ng g interface song/model/song
+    - Creates the interface for the Song coming from API in folder song/model
+    - Updated dependencies using the interface
+
+  > ng g service song/song
+    - Creates the service song.service in folder song
+    - Lets export http request from songs component to service
+
+  > Removed old songs.component and song.component with newer song-list and song-unique for more homogeneity
+  > Rewrited routerLink using binding property [routerLink] in <a>
+  > Secured <img> src and <a> href with quotes
+  > Added a check on song-unique first div to avoid error on console when song object is not yet loaded
+  > Removed unused properties in song-list and song-unique
+  > Temporary deactivated lyrics on song-unique
