@@ -114,3 +114,7 @@
     - Renamed sombre to dark
 
   > Reindented all HTML files
+
+# Languages const file
+  > Simplified implementation using object with iso-639 and originalName object in langs_const.ts file
+  > Changed app.component using those changes

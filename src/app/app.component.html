@@ -10,7 +10,7 @@
     <span class="droite">
       <input type="search" aria-label="Search" [(ngModel)]="searchFilter" (ngModelChange)="search($event)">
       <select name="lang" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
-        <option *ngFor="let lang of languages | keyvalue" value={{lang.key}}>{{ lang.value }}</option>
+        <option *ngFor="let lang of languages" value={{lang.isoCode}}>{{ lang.originalName }}</option>
       </select>
       <a mat-raised-button color="accent" (click)="onClick()">{{ 'label.theme' | translate }}</a>
       <a mat-raised-button color="accent" [routerLink]="'/profile'">{{ 'label.profile' | translate }}</a>
