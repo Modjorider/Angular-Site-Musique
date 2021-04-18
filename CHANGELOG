@@ -144,3 +144,4 @@
     - Maybe make it also accent insensitive next time
   > Fixed remaining french variable in CSS & HTML components
   > Simplified search for bands albums and songs
+  > Trimmed search value

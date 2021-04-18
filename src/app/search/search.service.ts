@@ -20,6 +20,6 @@ export class SearchService {
 
   // TODO : Make it accent insentitive
   public getFilteredItems(items: any[]) {
-    return items.filter(item => (item.name as string).toLowerCase().includes(this.getFilter().toLowerCase()));
+    return items.filter(item => (item.name as string).toLowerCase().trim().includes(this.getFilter().toLowerCase().trim()));
   }
 }
