@@ -73,7 +73,7 @@
   > Removed unused properties in song-list and song-unique
   > Temporary deactivated lyrics on song-unique
 
-# Refactoring french names of objects, variables and methods to english
+# Refactoring french names of objects, variables and methods to english :
   > profil
     - Renamed profil-component to profile-component
     - Renamed label.profil to label.profile
@@ -115,6 +115,21 @@
 
   > Reindented all HTML files
 
-# Languages const file
-  > Simplified implementation using object with iso-639 and originalName object in langs_const.ts file
+# Languages const file :
+  > Simplified implementation using object with iso-639 code and originalName object in langs_const.ts file
   > Changed app.component using those changes
+
+# Song lyrics rework
+  > ng g component song/lyrics --module=app
+    - Creates a new component lyrics in folder song/lyrics
+    - Add it in app.module declarations with --module option
+
+  > ng g interface song/model/lyrics
+    - Creates the interface for the Lyrics coming from API in folder song/model
+    - Updated dependencies using the interface
+
+  > Split lyrics from song-unique to new component lyrics
+  > Some unused CSS need to be cleared
+
+  > Updated Song model to using API lyrics send with song
+  > Get lyrics directly from song instead of calling API /lyrics endpoint

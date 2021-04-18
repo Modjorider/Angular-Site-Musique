@@ -4,7 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { SongService } from '../song.service';
 import { Song } from '../model/song';
-import { Lyrics } from 'src/model/lyrics';
+import { Lyrics } from '../model/lyrics';
 import { langs } from 'src/util/langs_const';
 
 @Component({
@@ -17,17 +17,14 @@ export class SongUniqueComponent implements OnInit {
   startLink: string[];
   link: string;
   autoplay: boolean;
-  lyrics: Lyrics[];
-  languages = langs;
   alone: boolean;
-  lang: boolean;
+  languages = langs;
   selectedOption: string;
 
   constructor(private songService: SongService, private cookieService: CookieService, private activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {
     this.song = null;
     this.startLink = [];
     this.alone = true;
-    this.lang = true;
 
     this.cookieService.check('autoplay')
       ? (this.cookieService.get('autoplay') === 'false'
@@ -49,13 +46,35 @@ export class SongUniqueComponent implements OnInit {
                 (result) => {
                   this.song = result;
                   this.getLink();
-                  this.getlyrics();
                 },
                 (error) => { console.error('[song-unique]', error); }
               );
           }
         }
       );
+  }
+
+  onChange(value) {
+    this.alone = false;
+    this.selectedOption = value;
+  }
+
+  getOriginalLyrics(): Lyrics {
+    return this.song.lyrics.find(l => l.original === true);
+  }
+
+  getTranslatedLyrics(): Lyrics[] {
+    return this.song.lyrics.filter(l => l.original === false);
+  }
+
+  getSelectedTranslatedLyrics(): Lyrics {
+    return this.song.lyrics.find(l => (l.language as string) == this.selectedOption && l.original === false);
+  }
+
+  // Gets all languages from all lyrics except original one in a single array
+  // TODO : Need to be optimised
+  getTranslatedLyricsCodes(): string[] {
+    return this.getTranslatedLyrics().reduce((a: any, {language}) => ([a].concat(language) as any).flat(), []);
   }
 
   getTheme() {
@@ -69,23 +88,5 @@ export class SongUniqueComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
     // URL début : https://www.youtube.com/watch?v=H7FIw--9Hs4
     // URL fin : https://www.youtube.com/embed/H7FIw--9Hs4
-  }
-
-
-  getlyrics() {
-    // TODO Implements LyricsService
-    /*
-    this.httpClient.get<any>('http://localhost:3000/api/v1/lyrics/'+this.song.uuid)
-    .subscribe(response => {
-      this.lyrics=response;
-      this.lyrics.forEach(element =>{ typeof(element.language) === 'string'? element.lang=false: element.lang=true; console.log(element.lang)});
-    })
-    */
-  }
-
-  onChange(value) {
-    this.alone = false;
-    this.selectedOption=value;
-    console.log(this.selectedOption);
   }
 }

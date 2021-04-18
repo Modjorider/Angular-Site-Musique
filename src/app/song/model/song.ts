@@ -1,4 +1,5 @@
 import { Album } from 'src/app/album/model/album';
+import { Lyrics } from './lyrics';
 
 export interface Song {
   uuid: string;
@@ -6,7 +7,7 @@ export interface Song {
   duration: number;
   trackNumber: number;
   writers: string[];
-  lyrics: string;
+  lyrics: Lyrics[];
   youtubeLink: string;
   album: Album;
   note: number;

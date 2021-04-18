@@ -1,4 +1,4 @@
-h1, h2 {
+h1, h2, .selection {
   margin-left: 40%;
 }
 
@@ -7,53 +7,29 @@ iframe {
   margin-left: 15%;
 }
 
+.center {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.left {
+  float: left;
+  margin-left: 15%;
+}
+
+.right {
+  float: right;
+  margin-right: 25%;
+  right: 0px;
+  padding: 10px;
+}
+
 .lyrics {
-  margin-top: 5%;
-  margin-left: 10%;
+  overflow: hidden;
 }
 
-.lyrics .alone {
-  position: relative;
-  left: 15%;
-}
-
-.lyrics h2 {
-  margin-top: 5%;
-}
-
-h3 {
-  margin-left: 35%;
-}
-
-.lyricsbright .lang {
-  text-decoration: underline, solid;
-  color: black;
-}
-
-.lyricsbright .langcomp {
-  text-decoration: underline, solid;
-  color: black;
-}
-
-.lyricsdark .lang {
-  text-decoration: underline, solid;
-  color: white;
-}
-
-.lyricsdark .langcomp {
-  text-decoration: underline, solid;
-  color: white;
-}
-
-.invisible {
-  display: none;
-}
-
-table {
-  width: 100%;
-}
-
-.langtitle {
-  position: relative;
-  left: 30%;
+.clear {
+  clear: left;
 }

@@ -19,6 +19,7 @@ import { SongListComponent } from './song/song-list/song-list.component';
 import { SongUniqueComponent } from './song/song-unique/song-unique.component';
 import { ErrorComponent } from './error/error.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LyricsComponent } from './song/lyrics/lyrics.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
     BandUniqueComponent,
     SongListComponent,
     SongUniqueComponent,
+    LyricsComponent,
     ErrorComponent,
     ProfileComponent
   ],

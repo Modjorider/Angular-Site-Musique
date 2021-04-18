@@ -1,0 +1,12 @@
+<div class="lyrics" *ngIf="lyrics !== null">
+  <span *ngFor="let lyricsLanguage of getLyricsLanguages(); last as isLast">
+    {{ 'lang.' + lyricsLanguage | translate }}{{ isLast ? ':' : ', ' }}
+  </span>
+
+  <br />
+  <br />
+
+  <div>
+    <span *ngFor="let line of lyrics.lyrics">{{ line }}<br /></span>
+  </div>
+</div>

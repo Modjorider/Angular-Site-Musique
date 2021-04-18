@@ -1,0 +1,46 @@
+.lyrics {
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.lyrics .alone {
+  position: relative;
+  left: 15%;
+}
+
+.lyrics h2 {
+  margin-top: 5%;
+}
+
+h3 {
+  margin-left: 35%;
+}
+
+.lyricsbright .lang {
+  text-decoration: underline, solid;
+  color: black;
+}
+
+.lyricsbright .langcomp {
+  text-decoration: underline, solid;
+  color: black;
+}
+
+.lyricsdark .lang {
+  text-decoration: underline, solid;
+  color: white;
+}
+
+.lyricsdark .langcomp {
+  text-decoration: underline, solid;
+  color: white;
+}
+
+table {
+  width: 100%;
+}
+
+.langtitle {
+  position: relative;
+  left: 30%;
+}

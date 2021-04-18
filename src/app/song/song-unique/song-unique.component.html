@@ -1,87 +1,24 @@
 <div *ngIf="song !== null">
   <h1>{{ song.name }}</h1>
-  <iframe height=550 width=1000 [src]='getLink()' *ngIf="autoplay" allow="autoplay"></iframe>
-  <iframe height=550 width=1000 [src]='getLink()' *ngIf="!autoplay"></iframe>
-  <h2>{{ "label.album" | translate }}: {{ song.album.name }}</h2>
+  <iframe height=550 width=1000 [src]="getLink()" *ngIf="autoplay" allow="autoplay"></iframe>
+  <iframe height=550 width=1000 [src]="getLink()" *ngIf="!autoplay"></iframe>
+  <h2>{{ 'label.album' | translate }}: {{ song.album.name }}</h2>
+
+  <div class="selection">
+    <h3>{{ 'label.lyrics' | translate }}:</h3>
+
+    <select name="lang" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)" *ngIf="song.lyrics !== null">
+      <option *ngFor="let tlc of getTranslatedLyricsCodes()" value={{tlc}}>
+        {{ 'lang.' + tlc | translate }}
+      </option>
+    </select>
+  </div>
 
   <div class="lyrics">
-    <h3>{{ "label.lyrics" | translate }}</h3>
-    <span class="alone" *ngFor="let lyric of lyrics">
-      <span *ngIf="lyric.original && alone">
-        <select name="lang" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
-           <option *ngFor="let lyric of lyrics" value={{lyric.language}} [ngClass]="(!lyric.original)? 'visible' : 'invisible'">
-            <span *ngFor="let lang of languages | keyvalue">
-              <a *ngIf="lyric.language === lang.key">{{ lang.value }}</a>
-            </span>
-           </option>
-        </select>
-        <br />
-        <br />
-        <span *ngFor="let lang of languages | keyvalue" value={{lang.key}}>
-          <span *ngIf="!lyric.lang">
-            <a *ngIf="lyric.language === lang.key" >{{ 'lang.' + lang.key | translate }}:</a>
-          </span>
-          <span *ngIf="lyric.lang">
-            <span *ngFor="let langs of lyric.language">
-              <a *ngIf="langs === lang.key" >{{ 'lang.' + lang.key | translate }} /</a>
-            </span>
-          </span>
-        </span>
-        <br />
-        <br />
-        <a *ngFor="let line of lyric.lyrics">{{line}} <br /></a>
-      </span>
-    </span>
-    <span *ngIf="!alone">
-      <table [ngClass]="getTheme() === 'bright' ? 'lyricsbright' : 'lyricsdark'">
-        <tbody>
-          <tr>
-            <td *ngFor="let lyric of lyrics" >
-              <span *ngFor="let lang of languages | keyvalue" value={{lang.key}}>
-                <span *ngIf="lyric.original && lyric.lang" class="lang">
-                  <a *ngFor="let langs of lyric.language">
-                    <a *ngIf="langs === lang.key">{{ 'lang.' + lang.key | translate }} /</a>
-                  </a>
-                </span>
-                <span *ngIf="lyric.original && lyric.language === lang.key && !lyric.lang" class="lang">
-                  <a>{{ 'lang.' + lang.key | translate }}:</a>
-                </span>
-              </span>
-            </td>
-            <td class="langtitle">
-              <span *ngFor="let lang of languages | keyvalue" value={{lang.key}} >
-                <a *ngIf="selectedOption === lang.key" class="langcomp">{{ 'lang.' + lang.key | translate }}:
-                  <br />
-                  <br />
-                </a>
-              </span>
-             </td>
-          </tr>
-          <tr>
-            <td *ngFor="let lyric of lyrics">
-              <span *ngFor="let lang of languages | keyvalue" value={{lang.key}}>
-                <a *ngIf="lyric.original && lyric.language === lang.key && !lyric.lang">
-                  <a *ngFor="let line of lyric.lyrics">{{ line }} <br /></a>
-                </a>
-              </span>
-              <span *ngFor="let lang of languages | keyvalue" value={{lang.key}}>
-                <span *ngIf="lyric.original && lyric.lang" class="lang">
-                  <a *ngIf="lyric.language[0] === lang.key">
-                    <a *ngFor="let line of lyric.lyrics">{{ line }} <br /></a>
-                  </a>
-                </span>
-              </span>
-            </td>
-            <td *ngFor="let lyric of lyrics">
-              <span *ngFor="let lang of languages | keyvalue" value={{lang.key}}>
-                <a *ngIf="selectedOption === lang.key && lyric.language === selectedOption">
-                  <a *ngFor="let line of lyric.lyrics">{{ line }} <br /></a>
-                </a>
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </span>
+    <!-- The original lyrics -->
+    <app-lyrics [ngClass]="alone ? 'center' : 'left'" [lyrics]="getOriginalLyrics()" *ngIf="song.lyrics !== null"></app-lyrics>
+    <!-- The translated lyrics -->
+    <app-lyrics class='right' [lyrics]="getSelectedTranslatedLyrics()"*ngIf="!alone && song.lyrics !== null"></app-lyrics>
+    <span class="clear"></span>
   </div>
 </div>
