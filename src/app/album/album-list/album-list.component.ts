@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { SearchService } from 'src/app/search/search.service';
 import { AlbumService } from '../album.service';
-import { SearchService } from '../../search.service';
 import { Album } from '../model/album';
 
 @Component({
@@ -10,19 +10,23 @@ import { Album } from '../model/album';
   styleUrls: ['./album-list.component.css']
 })
 export class AlbumListComponent implements OnInit {
-  albums: Album[];
+  private _albums: Album[];
 
-  constructor(private albumService: AlbumService, private cookieService: CookieService, public searchService: SearchService) {
-    this.albums = [];
+  constructor(private albumService: AlbumService, private cookieService: CookieService, private searchService: SearchService) {
+    this._albums = [];
   }
 
   ngOnInit(): void {
     this.albumService
       .getAlbums()
       .subscribe(
-        (result) => { this.albums = result; },
+        (result) => { this._albums = result; },
         (error) => { console.error('[album-list]', error); }
       );
+  }
+
+  get albums() {
+    return this.searchService.getFilteredItems(this._albums);
   }
 
   getTheme() {

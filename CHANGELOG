@@ -119,7 +119,7 @@
   > Simplified implementation using object with iso-639 code and originalName object in langs_const.ts file
   > Changed app.component using those changes
 
-# Song lyrics rework
+# Song lyrics rework :
   > ng g component song/lyrics --module=app
     - Creates a new component lyrics in folder song/lyrics
     - Add it in app.module declarations with --module option
@@ -133,3 +133,14 @@
 
   > Updated Song model to using API lyrics send with song
   > Get lyrics directly from song instead of calling API /lyrics endpoint
+
+# Search component bugfixes :
+  > ng g component search --module=app
+    - Creates a new component search in folder search
+    - Add it in app.module declarations with --module option
+
+  > Moved search.service in search folder
+  > Make search component case insensitive
+    - Maybe make it also accent insensitive next time
+  > Fixed remaining french variable in CSS & HTML components
+  > Simplified search for bands albums and songs

@@ -1,20 +1,20 @@
 <div [ngClass]="getTheme() === 'bright' ? 'containerbright' : 'containerdark'" *ngFor="let band of bands" >
-  <div *ngIf=" band.name.includes(searchService.getFilter())" [ngClass]="getTheme() === 'bright' ? 'groupesbright' : 'groupesdark'">
+  <div [ngClass]="getTheme() === 'bright' ? 'bandsbright' : 'bandsdark'">
     <img src="{{ band.smallLogo }}" class="smallLogo">
     <a [ngClass]="getTheme() === 'bright' ? 'link' : 'linkdark'" [routerLink]="['/band', band.uuid]">{{ band.name }}</a>
     <a>{{ band.originCountry | translate }}</a>
     <span class="{{ 'flag-icon flag-icon-' + codes.get(band.originCountry) }}"></span>
   </div>
 
-  <button [ngClass]="getTheme() === 'bright' ? 'buttonbright' : 'buttondark'" *ngIf="!band.all && band.name.includes(searchService.getFilter()) && band.albums.length>1" (click)="onClick(band)" width="20" height="25">
+  <button [ngClass]="getTheme() === 'bright' ? 'buttonbright' : 'buttondark'" *ngIf="!band.all && band.albums.length>1" (click)="onClick(band)" width="20" height="25">
     <img src="https://image.freepik.com/icones-gratuites/fleche-vers-bas-epais_318-8335.jpg" width="15" height="20">
   </button>
 
-  <button [ngClass]="getTheme() === 'bright' ? 'buttonbright' : 'buttondark'" *ngIf="band.all && band.name.includes(searchService.getFilter())  && band.albums.length>1" (click)="onClick(band)" width="20" height="25">
+  <button [ngClass]="getTheme() === 'bright' ? 'buttonbright' : 'buttondark'" *ngIf="band.all && band.albums.length>1" (click)="onClick(band)" width="20" height="25">
     <img width="15" height="20" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AAADS0tK/v7+8vLz8/PzBwcH5+flWVlZTU1O6urqkpKRCQkJZWVmOjo4EBATz8/MrKyvHx8fr6+uxsbHg4ODOzs7a2toTExOcnJwbGxslJSV+fn5paWmVlZWFhYV2dnY5OTlra2sYGBgyMjI9PT2sNCv8AAAEeklEQVR4nO2d63KqMBRGk2oE671or1qrte//ikdqOSIIJMBOdjLfmuk/xslyX5IgoUIAAAAAAAAAAAAAAAAAAACAIFEiOf8FzaMcuh4CLSMp5cj1ICgZypSAo5hGUC6kHLgeCBWXCKY8uh4KDQN5JchaHPwmaEaAiTqStwQWRXWeB4sEVouDol9YHVWVBf9qMZgFXLEGg6vFcg1mBLK6qYpgIImqciuZQKM4kjcz/Q0L/2uxKYIBJOr9aaKo6DHNEfS6FlVtF83jaS1WrWRKLLxV1I2gt1HUq8GMoX8d1UzQw45qkqIeKup30TwjnxJ1WL1Sq8GjedG0BjM8SVSdtajnUWxTgxlezIuaK5kKPEjUboIeJGr7GvREsWsEmSu2m+jLMK7FfgTZKnaZB4sw3Wn0UYNXRYaMWq1Fq+A29av+ajCDXS32maIXmCVqf02Go6Lqax4swuhueL9N5gqbdtN/DWawaDd9TvRlWEz9VCl6gUGi0jQZRoqUKXrBcUdtd9vQDKfzIl0XzeOwo1oRdPn0FHWTuSo6ajf0TeaKk1q0KegkUe0KOoiipRrMYbkW7QtaVhxYmOjL2KpFpf0YSe9Yq8UXR4JSvtgRXH67SNFfXpdWDKeO9FKmwsJOY+JQUMoJuZ9QK6eGK+oQKschtBBEdXJseKIOoruZIoN6xnhzLSjfiA3HrgXlmNjQbSdNWREbvhqN5l1n8bN4N/rMV1rBxGgwsyety55mRp9Ku3IzMow1O++Dik0+NiE1VAZr7nEkHvQMRWTQwBbEE+KH9kjiSGgbikg/ih+0gvobizj9qrUNhUprUStBpsSGc13BSBgZimimueucExvqdUc5vhSLQQyF0qzFJ2LDSGvy+hM0iaG4tJvGOL5HxIZiqzHkOGt3RoZC6LSbLbWgWDYPYvb/azYyVGktNmLhTk1jr4mvE5ZhDMXv1F+bqNR9JmXZsDQd5wrF1DCtxUWdoZ2bbZt6wfySw9iwqaO+2PlRf10zhNnNCMwN62txbUMvpXqjv7v9ilsYCnWsvJB6e5+j6j0Qn4Xr2hgK8Vlx3WP6m4ktNqt7Pa+URO0M75fBamNH7TqKUkvdL0ttoJ2hEst98ZrvtY37+bdEk/wSZDq/tzFtGcMzyTy/i4kn5Gu1+yTr/df4MD1uJxUZ1N7wzGayPU4P46/9mnZX30hd7nQybPx0DnQ35A4MYcgfGMKQPzCEIX9gCEP+wBCG/IEhDPkDQxjyB4Yw5A8MYcgfGMKQPzCEIX9gCEP+wBCG/IEhDPkDQxjyJ3zD+qMZGbYf4O6TROsst+NHgLuh8xaNk+tBdkLnvF3sepAd0HvXi4WX6hCi02p8bjRnDo2CB9dD7Ej1f8rN8P6/Vzcd4Kc+Xk/Pc4Phs+sBdkU1nBu2ca6XnF2N4M714Hoh+qkU/InYH2zSIqqK4s7RmTsC7tdiEDWY8VxeoM583hYWSQ8oD24P2o+pX1HigmS9O6Ryi9PR9alQSqIkiOYJAAAAAAAAAAAAAAAAAAAAAAAAgFb8A1JZOO9MZtx9AAAAAElFTkSuQmCC">
   </button>
 
-  <table *ngIf="!band.all && band.name.includes(searchService.getFilter())" [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
+  <table *ngIf="!band.all" [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
     <tbody>
       <tr>
         <img src="{{ band.albums[0]?.cover }}" class="cover">
@@ -28,7 +28,7 @@
     </tbody>
   </table>
 
-  <div *ngIf="band.all && band.name.includes(searchService.getFilter())">
+  <div *ngIf="band.all">
     <table *ngFor="let album of band.albums" [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
       <tbody>
         <tr>

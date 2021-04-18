@@ -1,5 +1,5 @@
 <div [ngClass]="getTheme() === 'bright' ? 'containerbright' : 'containerdark'" *ngFor="let album of albums">
-  <table *ngIf="album.name.includes(searchService.getFilter())" [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
+  <table [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
     <tbody>
       <tr>
         <img src="{{ album.cover }}" class="cover" />

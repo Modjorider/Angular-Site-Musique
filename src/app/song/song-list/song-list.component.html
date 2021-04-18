@@ -1,5 +1,5 @@
 <div [ngClass]="getTheme() === 'bright' ? 'containerbright' : 'containerdark'" *ngFor="let song of songs">
-  <table *ngIf="song.name.includes(searchService.getFilter())" [ngClass]="getTheme() === 'bright' ? 'songsbright' : 'songsdark'">
+  <table [ngClass]="getTheme() === 'bright' ? 'songsbright' : 'songsdark'">
     <tbody>
       <tr>
         <td>

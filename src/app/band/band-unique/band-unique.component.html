@@ -1,5 +1,5 @@
 <div [ngClass]="getTheme() === 'bright' ? 'containerbright' : 'containerdark'" *ngIf="band !== null">
-  <div [ngClass]="getTheme() === 'bright' ? 'groupesbright' : 'groupesdark'">
+  <div [ngClass]="getTheme() === 'bright' ? 'bandsbright' : 'bandsdark'">
     <img src="{{ band.smallLogo }}" class="smallLogo">
     <a>{{ band.name }}</a>
     <a>{{ band.originCountry | translate }}</a>

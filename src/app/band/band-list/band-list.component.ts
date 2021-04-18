@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { SearchService } from 'src/app/search/search.service';
 import { BandService } from '../band.service';
-import { SearchService } from '../../search.service';
 import { Band } from '../model/band';
 
 @Component({
@@ -10,12 +10,12 @@ import { Band } from '../model/band';
   styleUrls: ['./band-list.component.css']
 })
 export class BandListComponent implements OnInit {
-  bands: Band[];
+  private _bands: Band[];
   codes: Map<string, string>;
   sort: string;
 
-  constructor(private bandService: BandService, private cookieService: CookieService, public searchService: SearchService) {
-    this.bands = [];
+  constructor(private bandService: BandService, private cookieService: CookieService, private searchService: SearchService) {
+    this._bands = [];
     this.codes = new Map<string, string>();
 
     this.codes.set('country.france','fr');
@@ -30,9 +30,13 @@ export class BandListComponent implements OnInit {
     this.bandService
       .getBands()
       .subscribe(
-        (result) => { this.bands = result; },
+        (result) => { this._bands = result; },
         (error) => { console.error('[band-list]', error); }
       );
+  }
+
+  get bands() {
+    return this.searchService.getFilteredItems(this._bands);
   }
 
   getTheme() {

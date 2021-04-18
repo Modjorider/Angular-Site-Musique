@@ -20,6 +20,7 @@ import { SongUniqueComponent } from './song/song-unique/song-unique.component';
 import { ErrorComponent } from './error/error.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LyricsComponent } from './song/lyrics/lyrics.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LyricsComponent } from './song/lyrics/lyrics.component';
     SongUniqueComponent,
     LyricsComponent,
     ErrorComponent,
-    ProfileComponent
+    ProfileComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,14 @@
 <body [ngClass]="getTheme() === 'bright' ? 'bodybright': 'bodydark'">
   <nav [ngClass]="getTheme() === 'bright' ? 'navbar navbar-dark bg-primary': 'navbar navbar-dark bg-dark'" >
     <span>
-      <a mat-raised-button color="accent" [routerLink]="'/'" class="gauche">{{ 'label.site' | translate }}</a>
-      <a mat-raised-button color="accent" [routerLink]="'/bands'" class="gauche">{{ 'label.band' | translate }}</a>
-      <a mat-raised-button color="accent" [routerLink]="'/albums'" class="gauche">{{ 'label.album' | translate }}</a>
-      <a mat-raised-button color="accent" [routerLink]="'/songs'" class="gauche">{{ 'label.songs' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/'" class="left">{{ 'label.site' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/bands'" class="left">{{ 'label.band' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/albums'" class="left">{{ 'label.album' | translate }}</a>
+      <a mat-raised-button color="accent" [routerLink]="'/songs'" class="left">{{ 'label.songs' | translate }}</a>
     </span>
 
-    <span class="droite">
-      <input type="search" aria-label="Search" [(ngModel)]="searchFilter" (ngModelChange)="search($event)">
+    <span class="right">
+      <app-search></app-search>
       <select name="lang" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
         <option *ngFor="let lang of languages" value={{lang.isoCode}}>{{ lang.originalName }}</option>
       </select>

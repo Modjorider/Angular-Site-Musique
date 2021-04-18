@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { SearchService } from '../../search.service';
 import { SongService } from '../song.service';
 import { Song } from '../model/song';
+import { SearchService } from 'src/app/search/search.service';
 
 @Component({
   selector: 'app-song-list',
@@ -10,20 +10,24 @@ import { Song } from '../model/song';
   styleUrls: ['./song-list.component.css']
 })
 export class SongListComponent implements OnInit {
-  songs: Song[];
+  private _songs: Song[];
   notes = [5, 4, 3, 2, 1];
 
-  constructor(private songService: SongService, private cookieService: CookieService, public searchService: SearchService) {
-    this.songs = [];
+  constructor(private songService: SongService, private cookieService: CookieService, private searchService: SearchService) {
+    this._songs = [];
   }
 
   ngOnInit(): void {
     this.songService
       .getSongs()
       .subscribe(
-        (result) => { this.songs = result; },
+        (result) => { this._songs = result; },
         (error) => { console.error('[song-list]', error); }
       );
+  }
+
+  get songs() {
+    return this.searchService.getFilteredItems(this._songs);
   }
 
   getTheme() {

@@ -20,17 +20,17 @@
   margin-left: 1em;
 }
 
-.groupesbright {
+.bandsbright {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.groupesdark {
+.bandsdark {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.groupesbright a,.groupesdark a {
+.bandsbright a, .bandsdark a {
   padding-left: 5%;
 }
 
@@ -48,7 +48,7 @@
   border-spacing: 1em;
 }
 
-.cover{
+.cover {
   max-height: 5em;
 }
 
