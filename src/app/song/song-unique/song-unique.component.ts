@@ -6,6 +6,7 @@ import { SongService } from '../song.service';
 import { Song } from '../model/song';
 import { Lyrics } from '../model/lyrics';
 import { langs } from 'src/util/langs_const';
+import { COOKIE_AUTOPLAY, COOKIE_THEME } from 'src/util/const';
 
 @Component({
   selector: 'app-song-unique',
@@ -25,12 +26,7 @@ export class SongUniqueComponent implements OnInit {
     this.song = null;
     this.startLink = [];
     this.alone = true;
-
-    this.cookieService.check('autoplay')
-      ? (this.cookieService.get('autoplay') === 'false'
-        ? this.autoplay = false
-        : this.autoplay = true)
-      : this.autoplay = false;
+    this.autoplay = this.cookieService.get(COOKIE_AUTOPLAY) === 'true'; // Set false if cookie not set
   }
 
   ngOnInit(): void {
@@ -78,12 +74,13 @@ export class SongUniqueComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 
+  // TODO Optimize function
   getLink() {
-    this.startLink = this.song.youtubeLink.split("watch?v=");
-    this.autoplay ? this.link = this.startLink[0] + "embed/" + this.startLink[1] + "?autoplay=1" : this.link = this.startLink[0] + "embed/" + this.startLink[1];
+    this.startLink = this.song.youtubeLink.split('watch?v=');
+    this.autoplay ? this.link = this.startLink[0] + 'embed/' + this.startLink[1] + '?autoplay=1' : this.link = this.startLink[0] + 'embed/' + this.startLink[1];
 
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
     // URL début : https://www.youtube.com/watch?v=H7FIw--9Hs4

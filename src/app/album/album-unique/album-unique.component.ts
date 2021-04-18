@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { COOKIE_THEME } from 'src/util/const';
 import { AlbumService } from '../album.service';
 import { Album } from '../model/album';
 
@@ -35,6 +36,6 @@ export class AlbumUniqueComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 }

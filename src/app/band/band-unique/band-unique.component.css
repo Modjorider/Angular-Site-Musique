@@ -1,4 +1,4 @@
-.containerbright {
+.container-bright {
   align-items: center;
   background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
   border-radius: 10px;
@@ -6,7 +6,7 @@
   margin-left: 35%;
 }
 
-.containerdark {
+.container-dark {
   align-items: center;
   background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
   border-radius: 10px;
@@ -20,28 +20,28 @@
   margin-left: 1em;
 }
 
-.bandsbright {
+.bands-bright {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.bandsdark {
+.bands-dark {
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-.bandsbright a, .bandsdark a {
+.bands-bright a, .bands-dark a {
   padding-left: 5%;
 }
 
-.albumsbright {
+.albums-bright {
   margin-left: 10%;
   max-width: fit-content;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-.albumsdark {
+.albums-dark {
   margin-left: 10%;
   max-width: fit-content;
   border-collapse: separate;
@@ -52,6 +52,10 @@
   max-height: 5em;
 }
 
-.link {
+.link-bright {
   color:black;
+}
+
+.link-dark {
+  color:white;
 }

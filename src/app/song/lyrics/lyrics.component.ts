@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { COOKIE_THEME } from 'src/util/const';
 import { Lyrics } from '../model/lyrics';
 
 @Component({
@@ -25,6 +26,6 @@ export class LyricsComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 }

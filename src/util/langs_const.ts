@@ -70,7 +70,7 @@ export const langs: { isoCode: string, originalName: string }[] = [
 //  { isoCode: 'ii', originalName: 'ꆇꉙ' },
 //  { isoCode: 'ik', originalName: 'Iñupiaq' },
 //  { isoCode: 'io', originalName: 'Ido' },
-  { isoCode: 'is', originalName: 'Íslenska' },
+//  { isoCode: 'is', originalName: 'Íslenska' },
 //  { isoCode: 'it', originalName: 'Italiano' },
 //  { isoCode: 'iu', originalName: 'ᐃᓄᒃᑎᑐᑦ' },
 //  { isoCode: 'ja', originalName: '日本語' },

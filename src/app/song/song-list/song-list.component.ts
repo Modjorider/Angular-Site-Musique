@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { SongService } from '../song.service';
 import { Song } from '../model/song';
 import { SearchService } from 'src/app/search/search.service';
+import { COOKIE_NOTE, COOKIE_THEME } from 'src/util/const';
 
 @Component({
   selector: 'app-song-list',
@@ -31,19 +32,18 @@ export class SongListComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 
   choixNote(value, song: Song) {
-    this.cookieService.set('Note/' + song.name,value);
+    this.cookieService.set(`${COOKIE_NOTE}:${song.uuid}`, value);
     song.note = value;
-    console.log(this.cookieService.get('Note/' + song.name));
   }
 
-  getNote(){
+  getNote() {
     this.songs.forEach(song => {
-      this.cookieService.check('Note/' + song.name)
-        ? song.note = +(this.cookieService.get('Note/' + song.name))
+      this.cookieService.check(`${COOKIE_NOTE}:${song.uuid}`)
+        ? song.note = +(this.cookieService.get(`${COOKIE_NOTE}:${song.uuid}`))
         : song.note = 0;
     });
   }

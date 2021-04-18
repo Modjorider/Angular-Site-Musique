@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
+import { COOKIE_THEME } from 'src/util/const';
 import { langs } from '../util/langs_const';
 
 @Component({
@@ -24,12 +25,14 @@ export class AppComponent {
   }
 
   onClick() {
-    this.cookieService.set('theme', this.cookieService.get('theme') == 'dark' ? 'bright' : 'dark')
+    this.cookieService.set(COOKIE_THEME, this.cookieService.get(COOKIE_THEME) == 'bright' ? 'dark' : 'bright')
   }
 
   getTheme() {
-    return this.cookieService.check('theme')
-      ? this.cookieService.get('theme')
-      : this.cookieService.set('theme', 'bright');
+    if (!this.cookieService.check(COOKIE_THEME)) {
+      this.cookieService.set(COOKIE_THEME, 'bright');
+    }
+
+    return this.cookieService.get(COOKIE_THEME);
   }
 }

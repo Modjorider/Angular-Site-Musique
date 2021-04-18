@@ -145,3 +145,8 @@
   > Fixed remaining french variable in CSS & HTML components
   > Simplified search for bands albums and songs
   > Trimmed search value
+
+# General optimizations :
+  > Removed unused Icelandic translation in langs_const.ts
+  > Simplified class themes in CSS classes
+  > Using constants for cookies keys

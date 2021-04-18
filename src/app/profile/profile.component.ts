@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { COOKIE_AUTOPLAY, COOKIE_SORTBY } from 'src/util/const';
 
 @Component({
   selector: 'app-profile',
@@ -7,19 +8,17 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  autoplay:boolean;
+  autoplay: boolean;
   sort: string;
 
   constructor(private cookieService:CookieService) {
-      this.cookieService.check('autoplay')
-        ? (this.cookieService.get('autoplay') === 'false'
-          ? this.autoplay = false
-          : this.autoplay = true)
-        : this.autoplay = false;
+    this.autoplay = this.cookieService.get(COOKIE_AUTOPLAY) === 'true';
 
-      this.cookieService.check('sortBy')
-        ? this.sort = this.cookieService.get('sortBy')
-        : this.sort = '0', this.cookieService.set('sortBy', '0');
+    if (!this.cookieService.check(COOKIE_SORTBY)) {
+      this.cookieService.set(COOKIE_SORTBY, '0');
+    }
+
+    this.sort = this.cookieService.get(COOKIE_SORTBY);
    }
 
   ngOnInit(): void {
@@ -28,13 +27,11 @@ export class ProfileComponent implements OnInit {
 
   onChange() {
     this.autoplay = !this.autoplay;
-    this.autoplay === false
-      ? this.cookieService.set('autoplay', 'false')
-      : this.cookieService.set('autoplay', 'true');
+    this.cookieService.set(COOKIE_AUTOPLAY, `${this.autoplay}`);
   }
 
   sortBands(newValue: string) {
     this.sort = newValue;
-    this.cookieService.set('sortBy', this.sort);
+    this.cookieService.set(COOKIE_SORTBY, this.sort);
   }
 }

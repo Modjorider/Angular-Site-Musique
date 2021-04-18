@@ -1,5 +1,5 @@
-<body [ngClass]="getTheme() === 'bright' ? 'bodybright': 'bodydark'">
-  <nav [ngClass]="getTheme() === 'bright' ? 'navbar navbar-dark bg-primary': 'navbar navbar-dark bg-dark'" >
+<body class="body-{{ getTheme() }}">
+  <nav class="navbar navbar-dark bg-{{ getTheme() === 'bright' ? 'primary' : 'dark' }}">
     <span>
       <a mat-raised-button color="accent" [routerLink]="'/'" class="left">{{ 'label.site' | translate }}</a>
       <a mat-raised-button color="accent" [routerLink]="'/bands'" class="left">{{ 'label.band' | translate }}</a>

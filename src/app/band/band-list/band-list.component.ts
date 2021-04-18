@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchService } from 'src/app/search/search.service';
+import { COOKIE_SORTBY, COOKIE_THEME } from 'src/util/const';
+import { countries } from 'src/util/countries_const';
 import { BandService } from '../band.service';
 import { Band } from '../model/band';
 
@@ -11,19 +13,11 @@ import { Band } from '../model/band';
 })
 export class BandListComponent implements OnInit {
   private _bands: Band[];
-  codes: Map<string, string>;
+  codes = countries;
   sort: string;
 
   constructor(private bandService: BandService, private cookieService: CookieService, private searchService: SearchService) {
     this._bands = [];
-    this.codes = new Map<string, string>();
-
-    this.codes.set('country.france','fr');
-    this.codes.set('country.denmark', 'dk');
-    this.codes.set('country.sweden', 'se');
-    this.codes.set('country.usa', 'us');
-    this.codes.set('country.faroe_islands','fo');
-    this.codes.set('country.germany','de');
   }
 
   ngOnInit(): void {
@@ -40,12 +34,12 @@ export class BandListComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 
   sortBands() {
-    this.cookieService.check('sortBy')
-      ? this.sortMethod(this.cookieService.get('sortBy'))
+    this.cookieService.check(COOKIE_SORTBY)
+      ? this.sortMethod(this.cookieService.get(COOKIE_SORTBY))
       : this.sortMethod('0');
   }
 

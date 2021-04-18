@@ -1,10 +1,10 @@
-<div [ngClass]="getTheme() === 'bright' ? 'containerbright' : 'containerdark'" *ngFor="let album of albums">
-  <table [ngClass]="getTheme() === 'bright' ? 'albumsbright' : 'albumsdark'">
+<div class="container-{{ getTheme() }}" *ngFor="let album of albums">
+  <table class="albums-{{ getTheme() }}">
     <tbody>
       <tr>
         <img src="{{ album.cover }}" class="cover" />
         <td>
-          <a [ngClass]="getTheme() === 'bright' ? 'link': 'linkdark'" [routerLink]="['/album', album.uuid]">{{ album.name }}</a>
+          <a class="link-{{ getTheme() }}" [routerLink]="['/album', album.uuid]">{{ album.name }}</a>
         </td>
         <td>
           <a>{{ album.releaseDate | date: 'dd/MM/yyyy' }}</a>
@@ -21,10 +21,10 @@
           <span>{{ album.type | translate }}</span>
         </td>
         <td>
-          <a *ngFor="let song of album.songs" [ngClass]="getTheme() === 'bright' ? 'link': 'linkdark'" [routerLink]="['/song', song.uuid]">{{ song.name }}<br /></a>
+          <a class="link-{{ getTheme() }} "*ngFor="let song of album.songs" [routerLink]="['/song', song.uuid]">{{ song.name }}<br /></a>
         </td>
         <td>
-          <a [ngClass]="getTheme() === 'bright' ? 'link' : 'linkdark'" [routerLink]="['/band', album.band.uuid]">{{ album.band.name }}</a>
+          <a class="link-{{ getTheme() }}" [routerLink]="['/band', album.band.uuid]">{{ album.band.name }}</a>
         </td>
       </tr>
     </tbody>

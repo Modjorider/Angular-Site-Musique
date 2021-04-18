@@ -1,4 +1,4 @@
-.containerbright {
+.container-bright {
   align-items: center;
   background: linear-gradient(to right, rgb(238, 255, 0),rgb(3, 215, 252));
   border-radius: 10px;
@@ -7,7 +7,7 @@
   margin-top: 5%;
 }
 
-.containerdark {
+.container-dark {
   align-items: center;
   background: linear-gradient(to right, rgb(78, 1, 1),rgb(4, 30, 71));
   border-radius: 10px;
@@ -16,13 +16,13 @@
   margin-top: 5%;
 }
 
-.songsbright {
+.songs-bright {
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 1em;
 }
 
-.songsdark {
+.songs-dark {
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 1em;
@@ -32,8 +32,12 @@
   max-height: 5em;
 }
 
-.link {
+.link-bright {
   color:rgb(185, 92, 5);
+}
+
+.link-dark {
+  color:white;
 }
 
 .rating a:hover ~ a,

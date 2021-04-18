@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { COOKIE_THEME } from 'src/util/const';
+import { countries } from 'src/util/countries_const';
 import { BandService } from '../band.service';
 import { Band } from '../model/band';
 
@@ -11,16 +13,10 @@ import { Band } from '../model/band';
 })
 export class BandUniqueComponent implements OnInit {
   band: Band;
-  codes: Map<string, string>;
+  codes = countries;
 
   constructor(private bandService: BandService, private cookieService: CookieService, private activatedRoute: ActivatedRoute) {
     this.band = null;
-    this.codes = new Map<string, string>();
-
-    this.codes.set('country.france','fr');
-    this.codes.set('country.denmark', 'dk');
-    this.codes.set('country.sweden', 'se');
-    this.codes.set('country.usa', 'us');
   }
 
   ngOnInit(): void {
@@ -42,6 +38,6 @@ export class BandUniqueComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 }

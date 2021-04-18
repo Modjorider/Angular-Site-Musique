@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { SearchService } from 'src/app/search/search.service';
+import { COOKIE_THEME } from 'src/util/const';
 import { AlbumService } from '../album.service';
 import { Album } from '../model/album';
 
@@ -30,6 +31,6 @@ export class AlbumListComponent implements OnInit {
   }
 
   getTheme() {
-    return this.cookieService.get('theme');
+    return this.cookieService.get(COOKIE_THEME);
   }
 }
